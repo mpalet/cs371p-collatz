@@ -38,7 +38,7 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j) {
+int collatz_eval (int i, int j/*, int c[]={}*/) {
     /*
     i is the beginning of the range, inclusive
     j is the end of the range, inclusive
@@ -46,12 +46,34 @@ int collatz_eval (int i, int j) {
     */
     assert(i > 0);
     assert(j > 0);
-    // <your code>
-    for (int x = i; x <= j; ++x) {
-        
-    }
-    //
     int v = 1;
+    
+    for (int x = (i < (j/2) ? (j/2) : i); x <= j; ++x) {
+        int count = 1;
+        int xprime = x;
+        while (xprime != 1) {
+            /*
+            while temp != 1 :
+            if temp < 500000 and c[temp] != 0 :
+                count += c[temp] - 1
+                temp = 1
+            elif temp & 1 == 0 :
+                temp = temp >> 1
+                count += 1
+            else :
+                temp = temp + (temp >> 1) + 1 # Equivalent to (3x + 1) / 2, an invariant sequence for odd numbers
+                count += 2
+            */
+        }
+        assert(count > 0);
+        if (sizeof(c) > 0) {
+            // c[x] = count
+        }
+        if (count > v) {
+            v = count;
+        }
+    }
+    
     assert(v > 0);
     return v;}
 
