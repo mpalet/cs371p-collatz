@@ -142,7 +142,7 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_print_3);
     CPPUNIT_TEST(test_solve_1);
     CPPUNIT_TEST(test_solve_2);
-    //CPPUNIT_TEST(test_solve_3);
+    CPPUNIT_TEST(test_solve_3);
     CPPUNIT_TEST_SUITE_END();};
 
 // ----
