@@ -39,7 +39,7 @@ struct TestCollatz : CppUnit::TestFixture {
     // read
     // ----
 
-    void test_read () {
+    void test_read_1 () {
         std::istringstream r("1 10\n");
         int i;
         int j;
@@ -47,6 +47,22 @@ struct TestCollatz : CppUnit::TestFixture {
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i ==    1);
         CPPUNIT_ASSERT(j ==   10);}
+        
+    void test_read_2 () {
+        std::istringstream r("");
+        int i;
+        int j;
+        const bool b = collatz_read(r, i, j);
+        CPPUNIT_ASSERT(b == false);}
+		
+    void test_read_3 () {
+        std::istringstream r("1 1000000 1 10\n");
+        int i;
+        int j;
+        const bool b = collatz_read(r, i, j);
+        CPPUNIT_ASSERT(b ==    true);
+        CPPUNIT_ASSERT(i ==       1);
+        CPPUNIT_ASSERT(j == 1000000);}
 
     // ----
     // eval
@@ -92,7 +108,9 @@ struct TestCollatz : CppUnit::TestFixture {
     // -----
 
     CPPUNIT_TEST_SUITE(TestCollatz);
-    CPPUNIT_TEST(test_read);
+    CPPUNIT_TEST(test_read_1);
+    CPPUNIT_TEST(test_read_2);
+    CPPUNIT_TEST(test_read_3);
     CPPUNIT_TEST(test_eval_1);
     CPPUNIT_TEST(test_eval_2);
     CPPUNIT_TEST(test_eval_3);

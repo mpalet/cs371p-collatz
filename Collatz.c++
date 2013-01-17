@@ -57,7 +57,7 @@ int collatz_eval (int i, int j/*, int c[]={}*/) {
                 count += c[temp] - 1
                 temp = 1
             */
-            if (xprime & 1 == 0) {
+            if ((xprime & 1) == 0) {
                 xprime >>= 1;
                 ++count;
             }
