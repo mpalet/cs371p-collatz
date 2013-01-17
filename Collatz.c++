@@ -53,22 +53,25 @@ int collatz_eval (int i, int j/*, int c[]={}*/) {
         int xprime = x;
         while (xprime != 1) {
             /*
-            while temp != 1 :
             if temp < 500000 and c[temp] != 0 :
                 count += c[temp] - 1
                 temp = 1
-            elif temp & 1 == 0 :
-                temp = temp >> 1
-                count += 1
-            else :
-                temp = temp + (temp >> 1) + 1 # Equivalent to (3x + 1) / 2, an invariant sequence for odd numbers
-                count += 2
             */
+            if (xprime & 1 == 0) {
+                xprime >>= 1;
+                ++count;
+            }
+            else {
+                xprime = xprime + (xprime >> 1) + 1; // Equivalent to (3x + 1) / 2, an invariant sequence for odd numbers
+                count += 2;
+            }
         }
         assert(count > 0);
+        /*
         if (sizeof(c) > 0) {
-            // c[x] = count
+            c[x] = count
         }
+        */
         if (count > v) {
             v = count;
         }
