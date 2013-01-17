@@ -88,21 +88,43 @@ struct TestCollatz : CppUnit::TestFixture {
     // print
     // -----
 
-    void test_print () {
+    void test_print_1 () {
         std::ostringstream w;
         collatz_print(w, 1, 10, 20);
         CPPUNIT_ASSERT(w.str() == "1 10 20\n");}
+
+    void test_print_2 () {
+        std::ostringstream w;
+        collatz_print(w, 100, 200, 125);
+        CPPUNIT_ASSERT(w.str() == "100 200 125\n");}
+		
+    void test_print_3 () {
+        std::ostringstream w;
+        collatz_print(w, 900, 1000, 174);
+        CPPUNIT_ASSERT(w.str() == "900 1000 174\n");}
 
     // -----
     // solve
     // -----
 
-    void test_solve () {
+    void test_solve_1 () {
         std::istringstream r("1 10\n100 200\n201 210\n900 1000\n");
         std::ostringstream w;
         collatz_solve(r, w);
         CPPUNIT_ASSERT(w.str() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n");}
 
+    void test_solve_2 () {
+        std::istringstream r("5 5\n");
+        std::ostringstream w;
+        collatz_solve(r, w);
+        CPPUNIT_ASSERT(w.str() == "5 5 6\n");}
+		
+    void test_solve_3 () {
+        std::istringstream r("");
+        std::ostringstream w;
+        collatz_solve(r, w);
+        CPPUNIT_ASSERT(w.str() == "");}
+    
     // -----
     // suite
     // -----
@@ -115,8 +137,12 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_eval_2);
     CPPUNIT_TEST(test_eval_3);
     CPPUNIT_TEST(test_eval_4);
-    CPPUNIT_TEST(test_print);
-    CPPUNIT_TEST(test_solve);
+    CPPUNIT_TEST(test_print_1);
+    CPPUNIT_TEST(test_print_2);
+    CPPUNIT_TEST(test_print_3);
+    CPPUNIT_TEST(test_solve_1);
+    CPPUNIT_TEST(test_solve_2);
+    //CPPUNIT_TEST(test_solve_3);
     CPPUNIT_TEST_SUITE_END();};
 
 // ----
