@@ -31,7 +31,6 @@ bool collatz_read (std::istream& r, int& i, int& j) {
     r >> j;
     assert(i > 0);
     assert(j > 0);
-    assert(i <= j);
     return true;}
 
 // ------------
@@ -48,9 +47,17 @@ int collatz_eval (int i, int j/*, int c[]={}*/) {
     assert(j > 0);
     int v = 1;
     
+    // Swap i and j if necessary
+    if (i > j) {
+        i ^= j;
+        j ^= i;
+        i ^= j;
+    }
+    // Iterative loop over the input range using the max_range / 2 trick
     for (int x = (i < (j/2) ? (j/2) : i); x <= j; ++x) {
         int count = 1;
         int xprime = x;
+        // Loop to calculate cycle length, update longest cycle
         while (xprime != 1) {
             /*
             if temp < 500000 and c[temp] != 0 :
