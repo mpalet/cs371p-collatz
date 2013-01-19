@@ -8,8 +8,8 @@ First Name: Damien
 Last Name: Johnson
 EID: dmj559
 E-mail: dmn.johns@gmail.com
-Estimated number of hours: 1
-Actual    number of hours: 
+Estimated number of hours: 2
+Actual    number of hours: 3
 
 Turnin CS Username: dmnjohns
 GitHub ID: dmnjohns
