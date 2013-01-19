@@ -112,7 +112,7 @@ int collatz_eval (int i, int j) {
         while (xprime != 1) {
             if (xprime < CACHE_SIZE && cycleCache[xprime] != 0) {
                 count += cycleCache[xprime] - 1;
-                xprime = 1;
+                break;
             }
             else if ((xprime & 1) == 0) {
                 xprime >>= 1;
