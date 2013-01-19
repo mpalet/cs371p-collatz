@@ -118,5 +118,5 @@ void collatz_solve (std::istream& r, std::ostream& w) {
         cycleCache[x] = 0;
     }
     while (collatz_read(r, i, j)) {
-        const int v = collatz_eval(i, j/*, cycleCache*/);
+        const int v = collatz_eval(i, j, cycleCache);
         collatz_print(w, i, j, v);}}
