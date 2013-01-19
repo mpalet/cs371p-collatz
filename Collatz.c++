@@ -39,7 +39,7 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j/*, int &c[]*/) {
+int collatz_eval (int i, int j, int c[]) {
     /*
     i is the beginning of the range, inclusive
     j is the end of the range, inclusive
