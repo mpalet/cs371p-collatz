@@ -17,6 +17,54 @@ const int CACHE_SIZE = 500000;
 // collatz_read
 // ------------
 
+/**
+ * reads two ints into i and j
+ * @param r a  std::istream
+ * @param i an int by reference
+ * @param j an int by reference
+ * @return true if that succeeds, false otherwise
+ */
+bool collatz_read (std::istream&, int&, int&);
+
+// ------------
+// collatz_eval
+// ------------
+
+/**
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @return the max cycle length in the range [i, j]
+ */
+int collatz_eval (int, int, int []);
+
+// -------------
+// collatz_print
+// -------------
+
+/**
+ * prints the values of i, j, and v
+ * @param w a std::ostream
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @param v the max cycle length
+ */
+void collatz_print (std::ostream&, int, int, int);
+
+// -------------
+// collatz_solve
+// -------------
+
+/**
+ * read, eval, print loop
+ * @param r a std::istream
+ * @param w a std::ostream
+ */
+void collatz_solve (std::istream&, std::ostream&);
+
+// ------------
+// collatz_read
+// ------------
+
 bool collatz_read (std::istream& r, int& i, int& j) {
     /*
     reads two ints into i and j
