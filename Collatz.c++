@@ -13,6 +13,8 @@
 
 #include "Collatz.h"
 
+const int CACHE_SIZE = 500000;
+
 // ------------
 // collatz_read
 // ------------
@@ -37,7 +39,7 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j/*, int c[]={}*/) {
+int collatz_eval (int i, int j/*, int &c[]*/) {
     /*
     i is the beginning of the range, inclusive
     j is the end of the range, inclusive
@@ -59,12 +61,11 @@ int collatz_eval (int i, int j/*, int c[]={}*/) {
         int xprime = x;
         // Loop to calculate cycle length, update longest cycle
         while (xprime != 1) {
-            /*
-            if temp < 500000 and c[temp] != 0 :
-                count += c[temp] - 1
-                temp = 1
-            */
-            if ((xprime & 1) == 0) {
+            if (xprime < CACHE_SIZE && c[xprime] != 0) {
+                count += c[xprime] - 1;
+                xprime = 1;
+            }
+            else if ((xprime & 1) == 0) {
                 xprime >>= 1;
                 ++count;
             }
@@ -74,11 +75,7 @@ int collatz_eval (int i, int j/*, int c[]={}*/) {
             }
         }
         assert(count > 0);
-        /*
-        if (sizeof(c) > 0) {
-            c[x] = count
-        }
-        */
+        c[x] = count;
         if (count > v) {
             v = count;
         }
@@ -116,6 +113,10 @@ void collatz_solve (std::istream& r, std::ostream& w) {
     */
     int i;
     int j;
+    int cycleCache[CACHE_SIZE];
+    for (int x = 2; x < CACHE_SIZE; ++x) {
+        cycleCache[x] = 0;
+    }
     while (collatz_read(r, i, j)) {
-        const int v = collatz_eval(i, j);
+        const int v = collatz_eval(i, j/*, cycleCache*/);
         collatz_print(w, i, j, v);}}
