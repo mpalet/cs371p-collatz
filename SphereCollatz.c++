@@ -11,7 +11,9 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 
-const int CACHE_SIZE = 500000;
+const int CACHE_SIZE = 250000;
+
+int cycleCache[CACHE_SIZE];
 
 // ------------
 // collatz_read
@@ -35,7 +37,7 @@ bool collatz_read (std::istream&, int&, int&);
  * @param j the end       of the range, inclusive
  * @return the max cycle length in the range [i, j]
  */
-int collatz_eval (int, int, int []);
+int collatz_eval (int, int);
 
 // -------------
 // collatz_print
@@ -85,7 +87,7 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j, int *c) {
+int collatz_eval (int i, int j) {
     /*
     i is the beginning of the range, inclusive
     j is the end of the range, inclusive
@@ -93,6 +95,7 @@ int collatz_eval (int i, int j, int *c) {
     */
     assert(i > 0);
     assert(j > 0);
+    assert(CACHE_SIZE > 0);
     int v = 1;
     
     // Swap i and j if necessary
@@ -107,8 +110,8 @@ int collatz_eval (int i, int j, int *c) {
         int xprime = x;
         // Loop to calculate cycle length, update longest cycle
         while (xprime != 1) {
-            if (xprime < CACHE_SIZE && c[xprime] != 0) {
-                count += c[xprime] - 1;
+            if (xprime < CACHE_SIZE && cycleCache[xprime] != 0) {
+                count += cycleCache[xprime] - 1;
                 xprime = 1;
             }
             else if ((xprime & 1) == 0) {
@@ -121,7 +124,9 @@ int collatz_eval (int i, int j, int *c) {
             }
         }
         assert(count > 0);
-        c[x] = count;
+        if (x < CACHE_SIZE) {
+            cycleCache[x] = count;
+        }
         if (count > v) {
             v = count;
         }
@@ -159,16 +164,21 @@ void collatz_solve (std::istream& r, std::ostream& w) {
     */
     int i;
     int j;
-    int cycleCache[CACHE_SIZE];
+    // Clear the cache (indices 0 and 1 are never used since caching them would be meaningless; they are simply placeholders)
     for (int x = 2; x < CACHE_SIZE; ++x) {
         cycleCache[x] = 0;
     }
     while (collatz_read(r, i, j)) {
-        const int v = collatz_eval(i, j, cycleCache);
+        const int v = collatz_eval(i, j);
         collatz_print(w, i, j, v);}}
+
+// ----
+// main
+// ----
 
 int main () {
     using namespace std;
     ios_base::sync_with_stdio(false); // turn off synchronization with C I/O
     collatz_solve(cin, cout);
     return 0;}
+    

@@ -69,23 +69,19 @@ struct TestCollatz : CppUnit::TestFixture {
     // ----
 
     void test_eval_1 () {
-	int c[500000] = {0};
-        const int v = collatz_eval(1, 10, c);
+        const int v = collatz_eval(1, 10);
         CPPUNIT_ASSERT(v == 20);}
 
     void test_eval_2 () {
-	int c[500000] = {0};
-        const int v = collatz_eval(100, 200, c);
+        const int v = collatz_eval(100, 200);
         CPPUNIT_ASSERT(v == 125);}
 
     void test_eval_3 () {
-	int c[500000] = {0};
-        const int v = collatz_eval(201, 210, c);
+        const int v = collatz_eval(201, 210);
         CPPUNIT_ASSERT(v == 89);}
 
     void test_eval_4 () {
-	int c[500000] = {0};
-        const int v = collatz_eval(900, 1000, c);
+        const int v = collatz_eval(900, 1000);
         CPPUNIT_ASSERT(v == 174);}
 
     // -----
