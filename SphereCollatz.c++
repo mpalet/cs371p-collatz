@@ -11,7 +11,7 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 
-const int CACHE_SIZE = 250000;
+const int CACHE_SIZE = 125000;
 
 int cycleCache[CACHE_SIZE];
 
@@ -104,6 +104,7 @@ int collatz_eval (int i, int j) {
         j ^= i;
         i ^= j;
     }
+    assert(i <= j);
     // Iterative loop over the input range using the max_range / 2 trick
     for (int x = (i < (j/2) ? (j/2) : i); x <= j; ++x) {
         int count = 1;
