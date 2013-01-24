@@ -65,6 +65,7 @@ int collatz_eval (int i, int j) {
         int xprime = x;
         // Loop to calculate cycle length, update longest cycle
         while (xprime != 1) {
+            assert(xprime > 0);
             if (xprime < CACHE_SIZE && cycleCache[xprime] != 0) {
                 count += cycleCache[xprime] - 1;
                 break;
