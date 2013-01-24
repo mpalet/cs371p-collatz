@@ -84,7 +84,7 @@ struct TestCollatz : CppUnit::TestFixture {
         const int v = collatz_eval(900, 1000);
         CPPUNIT_ASSERT(v == 174);}
         
-    void test_eval_2 () {
+    void test_eval_5 () {
         const int v = collatz_eval(200, 100);
         CPPUNIT_ASSERT(v == 125);}
 
@@ -141,6 +141,7 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_eval_2);
     CPPUNIT_TEST(test_eval_3);
     CPPUNIT_TEST(test_eval_4);
+    CPPUNIT_TEST(test_eval_5);
     CPPUNIT_TEST(test_print_1);
     CPPUNIT_TEST(test_print_2);
     CPPUNIT_TEST(test_print_3);
