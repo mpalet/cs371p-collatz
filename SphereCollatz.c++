@@ -10,10 +10,14 @@
 
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
+#include <queue>
 
 const int CACHE_SIZE = 125000;
 
 int cycleCache[CACHE_SIZE];
+
+#ifndef Collatz_h
+#define Collatz_h
 
 // ------------
 // collatz_read
@@ -63,6 +67,8 @@ void collatz_print (std::ostream&, int, int, int);
  */
 void collatz_solve (std::istream&, std::ostream&);
 
+#endif // Collatz_h
+
 // ------------
 // collatz_read
 // ------------
@@ -109,28 +115,40 @@ int collatz_eval (int i, int j) {
     for (int x = (i < (j/2) ? (j/2) : i); x <= j; ++x) {
         int count = 1;
         int xprime = x;
+        // std::queue<int> track;
         // Loop to calculate cycle length, update longest cycle
-        while (xprime != 1) {
-            assert(xprime > 0);
+        while (xprime > 1) {
             if (xprime < CACHE_SIZE && cycleCache[xprime] != 0) {
                 count += cycleCache[xprime] - 1;
                 break;
             }
             else if ((xprime & 1) == 0) {
+                // track.push(xprime);
                 xprime >>= 1;
                 ++count;
             }
             else {
+                // track.push(xprime);
+                // track.push(xprime * 3 + 1);
                 xprime = xprime + (xprime >> 1) + 1; // Equivalent to (3x + 1) / 2, an invariant sequence for odd numbers
                 count += 2;
             }
         }
         assert(count > 0);
-        if (x < CACHE_SIZE) {
-            cycleCache[x] = count;
-        }
         if (count > v) {
             v = count;
+        }
+        /* Loop to cache intermediate stages; slows program down, so commented out
+        while (!track.empty()) {
+            if (track.front() < CACHE_SIZE) {
+                cycleCache[track.front()] = count;
+            }
+            --count;
+            track.pop();
+        }
+        */
+        if (x < CACHE_SIZE) {
+            cycleCache[x] = count;
         }
     }
     
@@ -183,4 +201,3 @@ int main () {
     ios_base::sync_with_stdio(false); // turn off synchronization with C I/O
     collatz_solve(cin, cout);
     return 0;}
-    
