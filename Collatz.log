@@ -1,0 +1,173 @@
+commit 39f98d8cd773d3698b3cc7d8075857d9d3a31594
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 25 21:34:39 2013 -0600
+
+    Implemented caching of intermediate steps
+
+commit 114f43a2291b67a5e59b2561b05b1f738b2f5328
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 23 21:32:16 2013 -0600
+
+    Updated test output
+
+commit af9b4ed3c1bd3e65fa59529acba92cf7a2b3856c
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 23 18:26:33 2013 -0600
+
+    Fixed redundant methods
+
+commit 20d1b989eac3ee1359fe113d69fbb862ee73da23
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 23 18:25:02 2013 -0600
+
+    Added an invariant to the inner eval loop, added test case
+
+commit 549130d9255d307741c8f9a12859c5653569fa17
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 23 18:09:12 2013 -0600
+
+    Documented code using Doxygen
+
+commit b811e7ccc781774e827e63cc3c5e0c8ccaf7101c
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 23 18:05:28 2013 -0600
+
+    Updated cache size to increase performance, added assert(i <= j) after swap
+
+commit 3d5c20ea872ba1641c5cc2f240729b383057c5c5
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Sat Jan 19 01:38:29 2013 -0600
+
+    Cleaner While Loop Break
+
+commit f218feb7113ff07381034c96facf0d3b62ad12f7
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Sat Jan 19 01:38:02 2013 -0600
+
+    Cleaner While Loop Break
+
+commit eae5cccdf5d68b4ec811c8abac34303c1c7410fd
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Sat Jan 19 01:34:26 2013 -0600
+
+    Updated cache implementation (global rather than parameter), resized cache
+
+commit 16b78ee793c9ce25c338b7b59e61500880c71510
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:47:41 2013 -0600
+
+    Added Collatz.h
+
+commit bcf8f1538c566f39d76cbb382bcff222533171d2
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:46:05 2013 -0600
+
+    Updated time estimate/requirement
+
+commit 78a57a48b16e6dc9c5028b0e3d1dcf3a9882c18a
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:44:57 2013 -0600
+
+    Wrote unit test output to file
+
+commit 41f29a783292cfe6d6cac30a17df63450eaf3b3a
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:41:59 2013 -0600
+
+    Added Output for Additional Acceptance Tests
+
+commit 00dc471b6dd68a06c13f8562329263788cca6a40
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:40:59 2013 -0600
+
+    Added Additional Acceptance Tests
+
+commit 9cd8047c5e16e8560d7c501b603713135f151976
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:39:19 2013 -0600
+
+    Created working SphereCollatz.c++ file for Sphere
+
+commit 1f835939b687b7517a6fee08aff7c28e417f8af9
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:35:30 2013 -0600
+
+    Corrected cache and unit tests to accomodate cache, fixes #15
+
+commit 429fe971275d79522338d369a70c185f679c9af1
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:26:41 2013 -0600
+
+    Added int array parameter to eval
+
+commit 973d568aa84d95c24a70b0808f86229fa383f56d
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:24:17 2013 -0600
+
+    Removed commented out parameter for eval
+
+commit 1270fe5f0a4ba864bb0a99266430e65e2f3b1c79
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Fri Jan 18 22:18:29 2013 -0600
+
+    Implemented simple cache and calculation optimizations, closes #11 closes #12
+
+commit ea21a2265b1212d0413f6a0fc35d3bddd5706d4e
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 23:30:10 2013 -0600
+
+    Swap i and j when i < k, closes #13
+
+commit 87306ccdae0262d84bf8a75c63e1c0178e680899
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 23:17:50 2013 -0600
+
+    Finished and working unit tests
+
+commit 9693655b10fcc410f437849fcd1e2b23c3117508
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 23:15:54 2013 -0600
+
+    Finished all unit tests
+
+commit 5744ea34c133b3a5f7878b28110ba359815ba05e
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 23:05:40 2013 -0600
+
+    Added unit tests for read, fixed compile warning for Collatz.c++
+
+commit 843405e3ffe275ad51d29af058197c3c8556dfc0
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 22:37:52 2013 -0600
+
+    Simple implementation complete
+
+commit e097a6499b5350a21dc5caf81ba8d089e206716f
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 20:41:36 2013 -0600
+
+    Additional code for eval, out of time
+
+commit 2a5912958f3d44d003e9ae1166d5d40e0d467a48
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Wed Jan 16 14:04:27 2013 -0600
+
+    Added method comments, started coding eval
+
+commit b2a9134f4d91ebdec12ef258cc5a980e8f4f7a01
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Tue Jan 15 02:00:38 2013 -0600
+
+    Fixed file contents
+
+commit 1a6437021b2b16f219dfff354fc9372bb7e33690
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Mon Jan 14 17:24:43 2013 -0600
+
+    Default files provided
+
+commit 27b4ecdbea27579c374e2f1325e29a3ba182d9b0
+Author: Damien Johnson <dmn.johns@gmail.com>
+Date:   Mon Jan 14 17:11:45 2013 -0600
+
+    Added ReadMe
