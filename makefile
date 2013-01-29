@@ -21,6 +21,11 @@ test: TestCollatz
 testv: TestCollatz
 	valgrind TestCollatz
 
+zip:
+	zip -r Collatz.zip html/ makefile Collatz.c++ Collatz.h Collatz.log \
+	RunCollatz.c++ RunCollatz.in RunCollatz.out SphereCollatz.c++ \
+	TestCollatz.c++ TestCollatz.out
+
 clean:
 	rm -f RunCollatz
 	rm -f TestCollatz
